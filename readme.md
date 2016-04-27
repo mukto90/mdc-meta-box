@@ -1,8 +1,13 @@
 # MDC Meta Box
 
-A PHP class to create custom meta boxes for WordPress' posts, pages or custom post types.
+A library class to create custom meta boxes for WordPress' posts, pages or custom post types.
 
-# Examples
+# Usage
+
+## How to use
+- Include ```class.mdc-metabox.php``` in your theme or plugin.
+- Define meta box(es) and fields in your theme's ```functions.php``` file on in your plugin. See sample codes below.
+- Use ```get_post_meta( $post_id, 'your_field_name', true )``` to get the field value.
 
 ## Basic Example
 ```php
