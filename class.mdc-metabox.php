@@ -58,7 +58,7 @@ class MDC_Meta_Box {
 		add_action( 'add_meta_boxes' , array( $this, 'add_meta_box' ) );
 		add_action( 'save_post', array( $this, 'save_meta_fields' ), 1, 2 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-		add_action( 'admin_head', array( $this, 'script' ) );
+		add_action( 'admin_head', array( $this, 'scripts' ) );
 	}
 
 	public function add_meta_box() {
@@ -196,7 +196,7 @@ class MDC_Meta_Box {
 
 		$html  .= sprintf( '<input type="checkbox" class="checkbox" id="mdc_cmb_%1$s" name="%1$s" value="on" %2$s %3$s />', $field['name'], checked( $value, 'on', false ), $disabled );
 
-		$html .= $this->field_description( $field );
+		$html .= $this->field_description( $field, true ) . '<br />';
 
 		return $html;
 	}
@@ -284,9 +284,13 @@ class MDC_Meta_Box {
         return $html;
 	}
 
-	public function field_description( $args ) {
+	public function field_description( $args, $no_p = false ) {
         if ( ! empty( $args['desc'] ) ) {
-            $desc = sprintf( '<p class="description">%s</p>', $args['desc'] );
+        	if( ! $no_p ){
+        		$desc = sprintf( '<p class="description">%s</p>', $args['desc'] );
+        	} else{
+        		$desc = sprintf( '%s', $args['desc'] );
+        	}
         } else {
             $desc = '';
         }
@@ -294,7 +298,7 @@ class MDC_Meta_Box {
         return $desc;
     }
 
-    function script() {
+    function scripts() {
         ?>
         <script>
             jQuery(document).ready(function($) {
