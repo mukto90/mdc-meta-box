@@ -221,4 +221,4 @@ mdc_meta_box( $args );
 [Nazmul Ahsan](http://nazmulahsan.me)
 
 ## Discussion
-[Link](http://http://nazmulahsan.me/?p=530)
+[Link](http://nazmulahsan.me/?p=530)
