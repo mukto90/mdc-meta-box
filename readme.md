@@ -13,13 +13,13 @@ $args = array(
     'meta_box_id'   =>  'your_unique_meta_box_id_here',
     'label'     =>  'Meta Box Title Here',
     'post_type' =>  array( 'post', 'page', 'cpt1', 'cpt2' ),
-    'context'   =>  'context_of_meta_box', // see 'Full Working Example' for better understanding
-    'priority'  =>  'priority_of_meta_box', // see 'Full Working Example' for better understanding
+    'context'   =>  'context_of_meta_box', // see '[Full Working Example](#full-working-example)' for better understanding
+    'priority'  =>  'priority_of_meta_box', // see '[Full Working Example](#full-working-example)' for better understanding
     'fields'    =>  array(
         array(
             'name'      =>  'sample_field_name',
             'label'     =>  __( 'Field Title' ),
-            'type'      =>  'field_type_here', // see 'Full Working Example' for better understanding
+            'type'      =>  'field_type_here', // see '[Full Working Example](#full-working-example)' for better understanding
         ),
     )
 );
@@ -27,7 +27,7 @@ $args = array(
 mdc_meta_box( $args );
 ```
 
-## Full Working Example
+## [Full Working Example](#full-working-example)
 ```php
 // include library file
 require dirname( __FILE__ ) . '/class.mdc-metabox.php';
