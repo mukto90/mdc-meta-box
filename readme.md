@@ -1,6 +1,6 @@
 # MDC Meta Box
 
-A library class to create custom meta boxes for WordPress' posts, pages or custom post types.
+A PHP class to create custom meta boxes for WordPress' posts, pages or custom post types.
 
 # Usage
 
