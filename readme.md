@@ -44,6 +44,9 @@ $args = array(
     'context'   =>  'advanced',
     'priority'  =>  'high',
     'fields'    =>  array(
+        /**
+         * adds a text field
+         */
         array(
             'name'      =>  'sample_text',
             'label'     =>  __( 'Text Field' ),
@@ -53,6 +56,9 @@ $args = array(
             'default'   =>  'Hello World!',
             'readonly'  =>  true,
         ),
+        /**
+         * adds a number field
+         */
         array(
             'name'      =>  'sample_number',
             'label'     =>  __( 'Number Field' ),
@@ -63,16 +69,22 @@ $args = array(
             'readonly'  =>  false,
             'disabled'  =>  false,
         ),
+        /**
+         * adds an email field
+         */
         array(
             'name'      =>  'sample_email',
             'label'     =>  __( 'Email Field' ),
             'type'      =>  'email',
-            'desc'      =>  __( 'This is a email field.' ),
+            'desc'      =>  __( 'This is an email field.' ),
             'class'     =>  'custom-class',
             'default'   =>  'john@doe.com',
             'readonly'  =>  false,
             'disabled'  =>  false,
         ),
+        /**
+         * adds a url field
+         */
         array(
             'name'      =>  'sample_url',
             'label'     =>  __( 'URL Field' ),
@@ -83,6 +95,9 @@ $args = array(
             'readonly'  =>  false,
             'disabled'  =>  false,
         ),
+        /**
+         * adds a password field
+         */
         array(
             'name'      =>  'sample_password',
             'label'     =>  __( 'Password Field' ),
@@ -92,6 +107,9 @@ $args = array(
             'readonly'  =>  false,
             'disabled'  =>  false,
         ),
+        /**
+         * adds a textarea field
+         */
         array(
             'name'      =>  'sample_textarea',
             'label'     =>  __( 'Textarea Field' ),
@@ -104,6 +122,9 @@ $args = array(
             'readonly'  =>  false,
             'disabled'  =>  false,
         ),
+        /**
+         * adds a radio field
+         */
         array(
             'name'      =>  'sample_radio',
             'label'     =>  __( 'Radio Field' ),
@@ -118,6 +139,9 @@ $args = array(
             'default'   =>  'item_2',
             'disabled'  =>  false,
         ),
+        /**
+         * adds a select field with options
+         */
         array(
             'name'      =>  'sample_select',
             'label'     =>  __( 'Select Field' ),
@@ -132,6 +156,9 @@ $args = array(
             'default'   =>  'option_2',
             'disabled'  =>  false,
         ),
+        /**
+         * adds a checkbox field
+         */
         array(
             'name'      =>  'sample_checkbox',
             'label'     =>  __( 'Checkbox Field' ),
@@ -140,6 +167,9 @@ $args = array(
             'class'     =>  'custom-class',
             'disabled'  =>  false,
         ),
+        /**
+         * adds a color field
+         */
         array(
             'name'      =>  'sample_color',
             'label'     =>  __( 'Color Field' ),
@@ -148,6 +178,9 @@ $args = array(
             'class'     =>  'regular-text',
             'default'   =>  '#f00'
         ),
+        /**
+         * adds a WYSIWYG field
+         */
         array(
             'name'      =>  'sample_wysiwyg',
             'label'     =>  __( 'WYSIWYG' ),
@@ -161,6 +194,9 @@ $args = array(
             'media_buttons' =>  false,
             'default'       =>  'Hello World'
         ),
+        /**
+         * adds a file upoloader field
+         */
         array(
             'name'      =>  'sample_file',
             'label'     =>  __( 'File Field' ),
@@ -183,3 +219,6 @@ mdc_meta_box( $args );
 
 ## Author
 [Nazmul Ahsan](http://nazmulahsan.me)
+
+## Discussion
+[Nazmul Ahsan](http://http://nazmulahsan.me/?p=530)
