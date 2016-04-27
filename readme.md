@@ -18,7 +18,7 @@ A library class to create custom meta boxes for WordPress' posts, pages or custo
 - Simply [download the zip](https://github.com/mukto90/mdc-meta-box/archive/master.zip) and use it as a standalone plugin.
 - Edit `example.php` in your plugin directory.
 
-### How to get custom fields' value
+### How to get custom fields' values
 
 - Use ```get_post_meta( $post_id, 'your_field_name', true )``` to get the field value.
 
