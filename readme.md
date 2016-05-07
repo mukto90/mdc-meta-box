@@ -34,11 +34,13 @@ $args = array(
     'context'   =>  'context_of_meta_box', // side|normal|advanced
     'priority'  =>  'priority_of_meta_box', // high|low
     'fields'    =>  array(
+        /* adds a field */
         array(
             'name'      =>  'sample_field_name',
             'label'     =>  __( 'Field Title' ),
             'type'      =>  'field_type_here', // define a field type from text, number, textarea, file, radio etc. see 'Full Working Example' for better understanding
         ),
+        /* adds another field */
         array(
             'name'      =>  'another_sample_field_name',
             'label'     =>  __( 'Another Field Title' ),
