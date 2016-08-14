@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Mdc-meta-box by mukto90</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Mdc-meta-box</h1>
+        <h2>A PHP class to create custom meta boxes for WordPress&#39; posts, pages or custom post types.</h2>
+        <a href="https://github.com/mukto90/mdc-meta-box" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="mdc-meta-box" class="anchor" href="#mdc-meta-box" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MDC Meta Box</h1>
+
+<p>A PHP class to create custom meta boxes for WordPress' posts, pages or custom post types.</p>
+
+<h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h1>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use</h2>
+
+<h3>
+<a id="how-to-add-fields" class="anchor" href="#how-to-add-fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to add fields</h3>
+
+<h4>
+<a id="way-1" class="anchor" href="#way-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Way 1</h4>
+
+<ul>
+<li>Include <code>class.mdc-metabox.php</code> in your theme or plugin.</li>
+<li>Define meta box(es) and fields in your theme's <code>functions.php</code> file on in your plugin. See sample codes below.</li>
+</ul>
+
+<h4>
+<a id="way-2" class="anchor" href="#way-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Way 2</h4>
+
+<ul>
+<li>Simply <a href="https://github.com/mukto90/mdc-meta-box/archive/master.zip">download the zip</a> and use it as a standalone plugin.</li>
+<li>Edit <code>example.php</code> in your plugin directory.</li>
+</ul>
+
+<h3>
+<a id="how-to-get-custom-fields-values" class="anchor" href="#how-to-get-custom-fields-values" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to get custom fields' values</h3>
+
+<ul>
+<li>Use <code>get_post_meta( $post_id, 'your_field_name', true )</code> to get the field value.</li>
+</ul>
+
+<h2>
+<a id="basic-example" class="anchor" href="#basic-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic Example</h2>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c">// include library file</span></span>
+<span class="pl-s1"><span class="pl-k">require</span> <span class="pl-c1">dirname</span>( <span class="pl-c1">__FILE__</span> ) <span class="pl-k">.</span> <span class="pl-s"><span class="pl-pds">'</span>/class.mdc-metabox.php<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$args</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>meta_box_id<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>your_unique_meta_box_id_here<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>label<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>Meta Box Title Here<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>post_type<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span>  <span class="pl-c1">array</span>( <span class="pl-s"><span class="pl-pds">'</span>post<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>page<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>cpt1<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>cpt2<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>context<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>context_of_meta_box<span class="pl-pds">'</span></span>, <span class="pl-c">// side|normal|advanced</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>priority<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>priority_of_meta_box<span class="pl-pds">'</span></span>, <span class="pl-c">// high|low</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>fields<span class="pl-pds">'</span></span>    <span class="pl-k">=&gt;</span>  <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">        <span class="pl-c">/* adds a field */</span></span>
+<span class="pl-s1">        <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>sample_field_name<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>label<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>Field Title<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>field_type_here<span class="pl-pds">'</span></span>, <span class="pl-c">// define a field type from text, number, textarea, file, radio etc. see 'Full Working Example' for better understanding</span></span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-c">/* adds another field */</span></span>
+<span class="pl-s1">        <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>another_sample_field_name<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>label<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>Another Field Title<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>field_type_here<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">    )</span>
+<span class="pl-s1">);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">mdc_meta_box( <span class="pl-smi">$args</span> );</span></pre></div>
+
+<h2>
+<a id="full-working-example" class="anchor" href="#full-working-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Full Working Example</h2>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c">// include library file</span></span>
+<span class="pl-s1"><span class="pl-k">require</span> <span class="pl-c1">dirname</span>( <span class="pl-c1">__FILE__</span> ) <span class="pl-k">.</span> <span class="pl-s"><span class="pl-pds">'</span>/class.mdc-metabox.php<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$args</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>meta_box_id<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>sample_meta_id<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>label<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>Sample Meta Box<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>post_type<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span>  <span class="pl-c1">array</span>( <span class="pl-s"><span class="pl-pds">'</span>post<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>page<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>context<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>advanced<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>priority<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>high<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>fields<span class="pl-pds">'</span></span>    <span class="pl-k">=&gt;</span>  <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">        <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">         * adds a text field</span></span>
+<span class="pl-s1"><span class="pl-c">         */</span></span>
+<span class="pl-s1">        <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>sample_text<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>label<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>Text Field<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>text<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>desc<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>This is a text field.<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>class<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>custom-class<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>Hello World!<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>readonly<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-c1">true</span>,</span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">         * adds a number field</span></span>
+<span class="pl-s1"><span class="pl-c">         */</span></span>
+<span class="pl-s1">        <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>sample_number<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>label<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>Number Field<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>number<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>desc<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>This is a number field.<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>class<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>custom-class<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span>  <span class="pl-c1">10</span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>readonly<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>disabled<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">         * adds an email field</span></span>
+<span class="pl-s1"><span class="pl-c">         */</span></span>
+<span class="pl-s1">        <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>sample_email<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>label<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>Email Field<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>email<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>desc<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>This is an email field.<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>class<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>custom-class<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>john@doe.com<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>readonly<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>disabled<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">         * adds a url field</span></span>
+<span class="pl-s1"><span class="pl-c">         */</span></span>
+<span class="pl-s1">        <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>sample_url<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>label<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>URL Field<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>url<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>desc<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>This is a url field.<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>class<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>custom-class<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>http://johndoe.com<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>readonly<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>disabled<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">         * adds a password field</span></span>
+<span class="pl-s1"><span class="pl-c">         */</span></span>
+<span class="pl-s1">        <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>sample_password<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>label<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>Password Field<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>desc<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>This is a password field.<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>class<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>custom-class<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>readonly<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>disabled<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">         * adds a textarea field</span></span>
+<span class="pl-s1"><span class="pl-c">         */</span></span>
+<span class="pl-s1">        <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>sample_textarea<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>label<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>Textarea Field<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>textarea<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>desc<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>This is a textarea field.<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>class<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>custom-class<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>columns<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span>  <span class="pl-c1">24</span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>rows<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-c1">5</span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>lorem ipsum dolor sit amet<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>readonly<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>disabled<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">         * adds a radio field</span></span>
+<span class="pl-s1"><span class="pl-c">         */</span></span>
+<span class="pl-s1">        <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>sample_radio<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>label<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>Radio Field<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>radio<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>desc<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>This is a radio field.<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>class<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>custom-class<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>options<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span> <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>item_1<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>Item One<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>item_2<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>Item Two<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>item_3<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>Item Three<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">                ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>item_2<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>disabled<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">         * adds a select field with options</span></span>
+<span class="pl-s1"><span class="pl-c">         */</span></span>
+<span class="pl-s1">        <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>sample_select<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>label<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>Select Field<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>select<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>desc<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>This is a select field.<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>class<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>custom-class<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>options<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span> <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>option_1<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>Option One<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>option_2<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>Option Two<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>option_3<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>Option Three<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">                ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>option_2<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>disabled<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">         * adds a checkbox field</span></span>
+<span class="pl-s1"><span class="pl-c">         */</span></span>
+<span class="pl-s1">        <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>sample_checkbox<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>label<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>Checkbox Field<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>checkbox<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>desc<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>This is a checkbox field.<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>class<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>custom-class<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>disabled<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">         * adds a color field</span></span>
+<span class="pl-s1"><span class="pl-c">         */</span></span>
+<span class="pl-s1">        <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>sample_color<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>label<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>Color Field<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>color<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>desc<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>This is a color field.<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>class<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>regular-text<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>#f00<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">         * adds a WYSIWYG field</span></span>
+<span class="pl-s1"><span class="pl-c">         */</span></span>
+<span class="pl-s1">        <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>sample_wysiwyg<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>label<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>WYSIWYG<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>wysiwyg<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>desc<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>This is a wysiwyg field.<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>class<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>regular-text<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>100%<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>rows<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-c1">5</span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>teeny<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-c1">true</span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>text_mode<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>media_buttons<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span>  <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>       <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>Hello World<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">         * adds a file upoloader field</span></span>
+<span class="pl-s1"><span class="pl-c">         */</span></span>
+<span class="pl-s1">        <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>sample_file<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>label<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>File Field<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>file<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>button_text<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>Upload<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>desc<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span>  __( <span class="pl-s"><span class="pl-pds">'</span>This is a file field.<span class="pl-pds">'</span></span> ),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>class<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>regular-text<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>disabled<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span>  <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span>  <span class="pl-s"><span class="pl-pds">'</span>http://example.com/sample/file.txt<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">    )</span>
+<span class="pl-s1">);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">mdc_meta_box( <span class="pl-smi">$args</span> );</span></pre></div>
+
+<h2>
+<a id="requirement-minimum" class="anchor" href="#requirement-minimum" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirement (minimum)</h2>
+
+<ul>
+<li>PHP 5.3.0</li>
+<li>WordPress 3.0+</li>
+</ul>
+
+<h2>
+<a id="author" class="anchor" href="#author" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Author</h2>
+
+<p><a href="http://nazmulahsan.me">Nazmul Ahsan</a></p>
+
+<h2>
+<a id="discussion" class="anchor" href="#discussion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Discussion</h2>
+
+<p><a href="http://nazmulahsan.me/?p=530">Link</a></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/mukto90/mdc-meta-box/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/mukto90/mdc-meta-box/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/mukto90/mdc-meta-box"></a> is maintained by <a href="https://github.com/mukto90">mukto90</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
