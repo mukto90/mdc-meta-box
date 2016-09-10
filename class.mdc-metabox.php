@@ -62,7 +62,14 @@ class MDC_Meta_Box {
 	}
 
 	public function add_meta_box() {
-		add_meta_box( $this->meta_box_id, $this->label, array( $this, 'meta_fields_callback' ), $this->post_type, $this->context, $this->priority );
+		if( is_array( $this->post_type ) ){
+			foreach ( $this->post_type as $post_type ) {
+				add_meta_box( $this->meta_box_id, $this->label, array( $this, 'meta_fields_callback' ), $post_type, $this->context, $this->priority );
+			}
+		}
+		else{
+			add_meta_box( $this->meta_box_id, $this->label, array( $this, 'meta_fields_callback' ), $this->post_type, $this->context, $this->priority );
+		}
 	}
 
 	public function meta_fields_callback() {
