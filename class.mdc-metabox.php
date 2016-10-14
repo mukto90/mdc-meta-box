@@ -139,7 +139,8 @@ class MDC_Meta_Box {
 
 	public function field_text( $field ){
 		global $post;
-		$value = get_post_meta( $post->ID, $field['name'], true ) != '' ? esc_attr (get_post_meta( $post->ID, $field['name'], true ) ) : $field['default'];
+		$field['default'] = ( isset( $field['default'] ) ) ? $field['default'] : '';
+		$value = get_post_meta( $post->ID, $field['name'], true ) != '' ? esc_attr ( get_post_meta( $post->ID, $field['name'], true ) ) : $field['default'];
 		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'regular-text';
 		$readonly  = isset( $field['readonly'] ) && ( $field['readonly'] == true ) ? " readonly" : "";
 		$disabled  = isset( $field['disabled'] ) && ( $field['disabled'] == true ) ? " disabled" : "";
@@ -195,6 +196,7 @@ class MDC_Meta_Box {
 
 	public function field_checkbox( $field ){
 		global $post;
+		$field['default'] = ( isset( $field['default'] ) ) ? $field['default'] : '';
 		$value = get_post_meta( $post->ID, $field['name'], true ) != '' ? esc_attr (get_post_meta( $post->ID, $field['name'], true ) ) : $field['default'];
 		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'regular-text';
 		$disabled  = isset( $field['disabled'] ) && ( $field['disabled'] == true ) ? " disabled" : "";
