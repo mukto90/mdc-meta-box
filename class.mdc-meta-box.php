@@ -340,9 +340,11 @@ class MDC_Meta_Box {
         </script>
 
         <style type="text/css">
-            .mdc-label {display: inline-block;vertical-align: top;width: 100x; font-weight: bold}
             /* version 3.8 fix */
             .form-table th { padding: 20px 10px; }
+            .mdc-label {display: inline-block;vertical-align: top;width: 100x; font-weight: bold}
+            .mdc-meta-field, .mdc-meta-field-text {width: 100%;}
+            .regular-text-text.mdc-url {width: calc(100% - 67px);}
             #wpbody-content .metabox-holder { padding-top: 5px; }
         </style>
         <?php
