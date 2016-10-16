@@ -2,7 +2,7 @@
 /**
  * Plugin name: MDC Meta Box Example
  */
-require dirname( __FILE__ ) . '/class.mdc-metabox.php';
+require dirname( __FILE__ ) . '/class.mdc-meta-box.php';
 
 $args = array(
     'meta_box_id'   =>  'sample_meta_id',
