@@ -332,6 +332,7 @@ class MDC_Meta_Box {
                         attachment = file_frame.state().get('selection').first().toJSON();
 
                         self.prev('.mdc-url').val(attachment.url);
+			$('.supports-drag-drop').hide()
                     });
 
                     file_frame.open();
