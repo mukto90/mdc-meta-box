@@ -10,7 +10,7 @@ A PHP class to create custom meta boxes for WordPress' posts, pages or custom po
 
 #### Way 1
 
-- Include ```class.mdc-metabox.php``` in your theme or plugin.
+- Include ```class.mdc-meta-box.php``` in your theme or plugin.
 - Define meta box(es) and fields in your theme's ```functions.php``` file on in your plugin. See sample codes below.
 
 #### Way 2
@@ -25,7 +25,7 @@ A PHP class to create custom meta boxes for WordPress' posts, pages or custom po
 ## Basic Example
 ```php
 // include library file
-require dirname( __FILE__ ) . '/class.mdc-metabox.php';
+require dirname( __FILE__ ) . '/class.mdc-meta-box.php';
 
 $args = array(
     'meta_box_id'   =>  'your_unique_meta_box_id_here',
@@ -55,7 +55,7 @@ mdc_meta_box( $args );
 ## Full Working Example
 ```php
 // include library file
-require dirname( __FILE__ ) . '/class.mdc-metabox.php';
+require dirname( __FILE__ ) . '/class.mdc-meta-box.php';
 
 $args = array(
     'meta_box_id'   =>  'sample_meta_id',
