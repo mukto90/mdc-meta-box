@@ -103,6 +103,7 @@ $args = array(
                 ),
             'default'   =>  'option_2',
             'disabled'  =>  false, // true|false
+            'multiple'  =>  true, // true|false
         ),
         array(
             'name'      =>  'sample_checkbox',

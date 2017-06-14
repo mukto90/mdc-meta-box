@@ -175,6 +175,7 @@ $args = array(
                 ),
             'default'   =>  'option_2',
             'disabled'  =>  false,
+            'multiple'  =>  true,
         ),
         /**
          * adds a checkbox field
