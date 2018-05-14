@@ -6,7 +6,7 @@ A PHP class to create custom meta boxes for WordPress' posts, pages or custom po
 
 ## How to use
 
-### How to add fields
+### How to add metabox(es)
 
 #### Option 1
 
@@ -43,7 +43,7 @@ $second_meta_field = new MDC_Meta_Box( $args ); // see below for sample $args
 ## Basic Example
 ```php
 // include library file
-// require dirname( __FILE__ ) . '/src/class.mdc-meta-box.php';
+// require dirname( __FILE__ ) . '/src/class.mdc-meta-box.php'; // un-comment this if needed
 
 $args = array(
     'meta_box_id'   =>  'your_unique_meta_box_id_here',
@@ -74,7 +74,7 @@ $my_meta_field = new MDC_Meta_Box( $args );
 ## Full Working Example
 ```php
 // include library file
-// require dirname( __FILE__ ) . '/src/class.mdc-meta-box.php';
+// require dirname( __FILE__ ) . '/src/class.mdc-meta-box.php'; // un-comment this if needed
 
 $args = array(
     'meta_box_id'   =>  'sample_meta_id',
