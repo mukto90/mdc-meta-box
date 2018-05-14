@@ -1,6 +1,6 @@
 <?php
 /**
- * Adds custom meta box and meta fields
+ * Adds custom meta box to WordPress post, page or custom post type.
  * @author Nazmul Ahsan <n.mukto@gmail.com>
 */
 if( ! class_exists( 'MDC_Meta_Box' )  ) :
@@ -42,13 +42,13 @@ class MDC_Meta_Box {
 	public $label;
 
 	function __construct( $args = null ){
-		$this->meta_box_id = $args['meta_box_id'] ? : 'mdc_meta_box';
-		$this->label = $args['label'] ? : 'MDC Metabox';
-		$this->post_type = $args['post_type'] ? : 'post';
-		$this->context = $args['context'] ? : 'normal';
-		$this->priority = $args['priority'] ? : 'high';
-		$this->hook_priority = $args['hook_priority'] ? : 10;
-		$this->fields = $args['fields'] ? : array();
+		$this->meta_box_id 		= $args['meta_box_id'] ? : 'mdc_meta_box';
+		$this->label 			= $args['label'] ? : 'MDC Metabox';
+		$this->post_type 		= $args['post_type'] ? : 'post';
+		$this->context 			= $args['context'] ? : 'normal';
+		$this->priority 		= $args['priority'] ? : 'high';
+		$this->hook_priority 	= $args['hook_priority'] ? : 10;
+		$this->fields 			= $args['fields'] ? : array();
 
 		self::hooks();
 	}
@@ -277,12 +277,13 @@ class MDC_Meta_Box {
 		$disabled  = isset( $field['disabled'] ) && ( $field['disabled'] == true ) ? " disabled" : "";
 
         $id    = $field['name']  . '[' . $field['name'] . ']';
-        $button_text = isset( $field['button_text'] ) ? $field['button_text'] : __( 'Choose File' );
+        $upload_button = isset( $field['upload_button'] ) ? $field['upload_button'] : __( 'Choose File' );
+        $select_button = isset( $field['select_button'] ) ? $field['select_button'] : __( 'Select' );
         
         $html	= sprintf( '<fieldset class="mdc-row" id="mdc_cmb_fieldset_%1$s">', $field['name'] );
         $html	.= sprintf( '<label class="mdc-label" for="mdc_cmb_%1$s">%2$s</label>', $field['name'], $field['label']);
-        $html  .= sprintf( '<input type="text" class="%1$s-text mdc-url" id="mdc_cmb_%2$s" name="%2$s" value="%3$s" %4$s />', $class, $field['name'], $value, $disabled );
-        $html  .= '<input type="button" class="button mdc-browse" value="' . $button_text . '" ' . $disabled . ' />';
+        $html  .= sprintf( '<input type="text" class="%1$s-text mdc-file" id="mdc_cmb_%2$s" name="%2$s" value="%3$s" %4$s />', $class, $field['name'], $value, $disabled );
+        $html  .= '<input type="button" class="button mdc-browse" data-title="' . $field['label'] . '" data-select-text="' . $select_button . '" value="' . $upload_button . '" ' . $disabled . ' />';
         $html  .= $this->field_description( $field );
         $html	.= '</fieldset>';
         return $html;
@@ -303,7 +304,7 @@ class MDC_Meta_Box {
 
         $editor_settings = array(
             'teeny'         => $teeny,
-            'textarea_name' => $field['name'] . '[' . $field['name'] . ']',
+            'textarea_name' => $field['name'],
             'textarea_rows' => $rows,
             'quicktags'		=> $text_mode,
             'media_buttons'		=> $media_buttons,
@@ -314,7 +315,7 @@ class MDC_Meta_Box {
         }
 
         ob_start();
-        wp_editor( $value, $field['name'] . '-' . $field['name'], $editor_settings );
+        wp_editor( $value, $field['name'], $editor_settings );
 		$html .= ob_get_contents();
 		ob_end_clean();
         
@@ -323,12 +324,12 @@ class MDC_Meta_Box {
         return $html;
 	}
 
-	public function field_description( $args, $no_p = false ) {
+	public function field_description( $args ) {
         if ( ! empty( $args['desc'] ) ) {
-        	if( isset( $args['desc_p'] ) ) {
-        		$desc = sprintf( '<p class="description">%s</p>', $args['desc'] );
-        	} else{
+        	if( isset( $args['desc_nop'] ) && $args['desc_nop'] ) {
         		$desc = sprintf( '<small class="mdc-small">%s</small>', $args['desc'] );
+        	} else{
+        		$desc = sprintf( '<p class="description">%s</p>', $args['desc'] );
         	}
         } else {
             $desc = '';
@@ -351,9 +352,9 @@ class MDC_Meta_Box {
                     var self = $(this);
 
                     var file_frame = wp.media.frames.file_frame = wp.media({
-                        title: self.data('uploader_title'),
+                        title: self.data('title'),
                         button: {
-                            text: self.data('uploader_button_text'),
+                            text: self.data('select-text'),
                         },
                         multiple: false
                     });
@@ -361,7 +362,7 @@ class MDC_Meta_Box {
                     file_frame.on('select', function () {
                         attachment = file_frame.state().get('selection').first().toJSON();
 
-                        self.prev('.mdc-url').val(attachment.url);
+                        self.prev('.mdc-file').val(attachment.url);
                         $('.supports-drag-drop').hide()
                     });
 
@@ -374,7 +375,10 @@ class MDC_Meta_Box {
             /* version 3.8 fix */
             .form-table th { padding: 20px 10px; }
             .mdc-row { border-bottom: 1px solid #ebebeb; padding: 8px 4px; }
-            .mdc-label {display: inline-block;vertical-align: top;width: 200px;}
+            .mdc-row:last-child { border-bottom: 0px;}
+            .mdc-row .mdc-label {display: inline-block; vertical-align: top; width: 200px; font-size: 15px; line-height: 24px;}
+            .mdc-row .mdc-browse { width: 96px;}
+            .mdc-row .mdc-file { width: calc( 100% - 110px ); margin-right: 4px; line-height: 20px;}
             .mdc-meta-field, .mdc-meta-field-text {width: 100%;}
             .regular-text-text.mdc-url {width: calc(100% - 67px);}
             #wpbody-content .metabox-holder { padding-top: 5px; }

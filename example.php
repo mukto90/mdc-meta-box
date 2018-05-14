@@ -1,19 +1,25 @@
 <?php
 /**
  * Plugin name: MDC Meta Box Example
+ * Description: A sample meta box for post, page or custom post types.
+ * Author: Nazmul Ahsan
+ * Author URI: https://nazmulahsan.me
+ * Plugin URI: https://wppeople.net
+ * Version: 1.1
  */
 require dirname( __FILE__ ) . '/class.mdc-meta-box.php';
 
 $args = array(
     'meta_box_id'   =>  'sample_meta_id',
-    'label'     =>  'Sample Meta Box',
-    'post_type' =>  array( 'post', 'page' ),
-    'context'   =>  'advanced', // side|normal|advanced
-    'priority'  =>  'high', // high|low
-    'fields'    =>  array(
+    'label'         =>  __( 'Sample Meta Box' ),
+    'post_type'     =>  array( 'post', 'page' ),
+    'context'       =>  'normal', // side|normal|advanced
+    'priority'      =>  'high', // high|low
+    'hook_priority'  =>  10,
+    'fields'        =>  array(
         /**
          * PLEASE NOTE
-         * desc, class, default, readonly, disabled, cols, rows, text_mode, teeny and media_buttons are optional.
+         * desc, desc_nop, class, default, readonly, disabled, cols, rows, text_mode, teeny and media_buttons are optional.
          */
         array(
             'name'      =>  'sample_text',
@@ -24,6 +30,7 @@ $args = array(
             'default'   =>  'Hello World!',
             'readonly'  =>  false, // true|false
             'disabled'  =>  false, // true|false
+            'desc_nop'  =>  false, // true|false
         ),
         array(
             'name'      =>  'sample_number',
@@ -123,7 +130,7 @@ $args = array(
         ),
         array(
             'name'      =>  'sample_wysiwyg',
-            'label'     =>  __( 'WYSIWYG' ),
+            'label'     =>  __( 'WYSIWYG Field' ),
             'type'      =>  'wysiwyg',
             'desc'      =>  __( 'This is a wysiwyg field.' ),
             'class'     =>  'mdc-meta-field',
@@ -135,10 +142,11 @@ $args = array(
             'default'       =>  'Hello World'
         ),
         array(
-            'name'      =>  'sample_file',
+            'name'      =>  'sample_fise',
             'label'     =>  __( 'File Field' ),
             'type'      =>  'file',
-            'button_text'     =>  __( 'Upload' ),
+            'upload_button'     =>  __( 'Choose File' ),
+            'select_button'     =>  __( 'Select File' ),
             'desc'      =>  __( 'This is a file field.' ),
             'class'     =>  'mdc-meta-field',
             'disabled'  =>  false, // true|false
