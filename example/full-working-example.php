@@ -1,13 +1,4 @@
 <?php
-/**
- * Plugin name: MDC Meta Box Example
- * Description: A sample meta box for post, page or custom post types.
- * Author: Nazmul Ahsan
- * Author URI: https://nazmulahsan.me
- * Plugin URI: https://wppeople.net
- * Version: 1.1
- */
-require dirname( __FILE__ ) . '/class.mdc-meta-box.php';
 
 $args = array(
     'meta_box_id'   =>  'sample_meta_id',

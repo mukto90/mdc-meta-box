@@ -1,61 +1,12 @@
-# MDC Meta Box
-
-A PHP class to create custom meta boxes for WordPress' posts, pages or custom post types.
-
-# Usage
-
-## How to use
-
-### How to add fields
-
-#### Way 1
-
-- Include ```class.mdc-meta-box.php``` in your theme or plugin.
-- Define meta box(es) and fields in your theme's ```functions.php``` file on in your plugin. See sample codes below.
-
-#### Way 2
-
-- Simply [download the zip](https://github.com/mukto90/mdc-meta-box/archive/master.zip) and use it as a standalone plugin.
-- Edit `plugin.php` in your plugin directory.
-
-### How to get custom fields' values
-
-- Use ```get_post_meta( $post_id, 'your_field_name', true )``` to get the field value.
-
-## Basic Example
-```php
-// include library file
-require dirname( __FILE__ ) . '/src/class.mdc-meta-box.php';
-
-$args = array(
-    'meta_box_id'   =>  'your_unique_meta_box_id_here',
-    'label'         =>  __( 'Meta Box Title Here' ),
-    'post_type'     =>  array( 'post', 'page', 'cpt1', 'cpt2' ),
-    'context'       =>  'context_of_meta_box', // side|normal|advanced
-    'priority'      =>  'priority_of_meta_box', // high|low
-    'hook_priority' =>  'priority_of_hook', // Default 10
-    'fields'        =>  array(
-        /* adds a field */
-        array(
-            'name'      =>  'sample_field_name',
-            'label'     =>  __( 'Field Title' ),
-            'type'      =>  'field_type_here', // define a field type from text, number, textarea, file, radio etc. see 'Full Working Example' for better understanding
-        ),
-        /* adds another field */
-        array(
-            'name'      =>  'another_sample_field_name',
-            'label'     =>  __( 'Another Field Title' ),
-            'type'      =>  'field_type_here',
-        ),
-    )
-);
-
-mdc_meta_box( $args );
-```
-
-## Full Working Example
-```php
-// include library file
+<?php
+/**
+ * Plugin name: MDC Meta Box Example
+ * Description: A sample meta box for post, page or custom post types.
+ * Author: Nazmul Ahsan
+ * Author URI: https://nazmulahsan.me
+ * Plugin URI: https://wppeople.net
+ * Version: 1.1
+ */
 require dirname( __FILE__ ) . '/src/class.mdc-meta-box.php';
 
 $args = array(
@@ -205,17 +156,3 @@ $args = array(
 );
 
 mdc_meta_box( $args );
-```
-
-## Screenshot
-![MDC Meta Box](https://box.everhelper.me/attachment/1725999/oqmfbhrulxkg4glmleln/792856-KILfRby62GNUnC36/screen.png "MDC Meta Box")
-
-## Requirement (minimum)
- - PHP 5.3.0
- - WordPress 3.0+
-
-## Author
-[Nazmul Ahsan](https://nazmulahsan.me)
-
-## Discussion
-[Link](https://nazmulahsan.me/?p=530)
