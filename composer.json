@@ -4,6 +4,7 @@
     "description": "A PHP class to create custom meta boxes for WordPress' posts, pages or custom post types.",
     "keywords": ["metabox","meta box", "custom metabox"],
     "homepage": "https://github.com/mukto90/mdc-meta-box",
+    "license": "GPL2",
     "authors": [
         {
             "name": "Nazmul Ahsan",
@@ -13,7 +14,7 @@
         }
     ],
     "require": {
-        "php": ">=5.2.1"
+        "php": ">=5.3.0"
     },
     "autoload": {
         "classmap": ["src/"]
