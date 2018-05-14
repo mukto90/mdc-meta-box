@@ -21,14 +21,14 @@ A PHP class to create custom meta boxes for WordPress' posts, pages or custom po
 - Include your autoloader file (if not already) with `/vendor/autoload.php;`
 - Instantiate the class and pass your arguments like this-
 ```php
-$first_meta_field = new MDC_Meta_Box( $first_args ); // see below for sample $args
+$first_meta_field = new MDC_Meta_Box( $args ); // see below for sample $args
 ```
 #### Option 2
 
 - Include ```class.mdc-meta-box.php``` in your theme or plugin.
 - Define meta box(es) and fields in your theme's ```functions.php``` file or in your plugin, like this-
 ```php
-$second_meta_field = new MDC_Meta_Box( $second_args ); // see below for sample $args
+$second_meta_field = new MDC_Meta_Box( $args ); // see below for sample $args
 ```
 
 #### Option 3
