@@ -34,7 +34,7 @@ $second_meta_field = new MDC_Meta_Box( $args ); // see below for sample $args
 #### Option 3
 
 - Simply [download the zip](https://github.com/mukto90/mdc-meta-box/archive/master.zip) and use it as a standalone plugin.
-- Edit `mdc-meta-box/plugin.php` in your plugin directory.
+- Edit `mdc-meta-box/plugin.php` under your `wp-content/plugins` directory.
 
 ### How to get custom fields' values
 
