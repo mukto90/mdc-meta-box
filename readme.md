@@ -8,12 +8,25 @@ A PHP class to create custom meta boxes for WordPress' posts, pages or custom po
 
 ### How to add fields
 
-#### Way 1
+#### Option 1
+
+- Add the following to your `composer.json` file-
+```json
+{
+    "require": {
+        "mukto90/mdc-meta-box": "dev-master"
+    }
+}
+```
+- Include your autoloader file (if not already) with `/vendor/autoload.php;`
+- Instantiate the class and pass your arguments.
+
+#### Option 2
 
 - Include ```class.mdc-meta-box.php``` in your theme or plugin.
 - Define meta box(es) and fields in your theme's ```functions.php``` file on in your plugin. See sample codes below.
 
-#### Way 2
+#### Option 3
 
 - Simply [download the zip](https://github.com/mukto90/mdc-meta-box/archive/master.zip) and use it as a standalone plugin.
 - Edit `plugin.php` in your plugin directory.
