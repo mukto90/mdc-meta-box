@@ -18,6 +18,7 @@ A PHP class to create custom meta boxes for WordPress' posts, pages or custom po
     }
 }
 ```
+- Run `composer update` command.
 - Include your autoloader file (if not already) with `/vendor/autoload.php;`
 - Instantiate the class and pass your arguments like this-
 ```php
