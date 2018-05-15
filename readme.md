@@ -8,7 +8,7 @@ A PHP class to create custom meta boxes for WordPress' posts, pages or custom po
 
 ### How to add metabox(es)
 
-#### Option 1
+#### Option 1 (using Composer)
 
 - Add the following to your `composer.json` file-
 ```json
@@ -18,7 +18,7 @@ A PHP class to create custom meta boxes for WordPress' posts, pages or custom po
     }
 }
 ```
-- Run `composer update` command.
+- Run `composer install` command.
 - Include your autoloader file (if not already) with `/vendor/autoload.php;`
 - Instantiate the class and pass your arguments like this-
 ```php
