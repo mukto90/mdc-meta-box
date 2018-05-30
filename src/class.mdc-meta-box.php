@@ -110,6 +110,8 @@ class MDC_Meta_Box {
 			elseif( $field['type'] == 'wysiwyg' ){
 				echo $this->field_wysiwyg( $field );
 			}
+
+			do_action( "mdc_meta_field-{$field['name']}", $field, $post->post_type );
 		}
 		
 
