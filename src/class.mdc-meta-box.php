@@ -148,7 +148,7 @@ class MDC_Meta_Box {
 		global $post;
 		$field['default'] = ( isset( $field['default'] ) ) ? $field['default'] : '';
 		$value = get_post_meta( $post->ID, $field['name'], true ) != '' ? esc_attr ( get_post_meta( $post->ID, $field['name'], true ) ) : $field['default'];
-		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'regular-text';
+		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'mdc-meta-field';
 		$readonly  = isset( $field['readonly'] ) && ( $field['readonly'] == true ) ? " readonly" : "";
 		$disabled  = isset( $field['disabled'] ) && ( $field['disabled'] == true ) ? " disabled" : "";
 
@@ -165,7 +165,7 @@ class MDC_Meta_Box {
 	public function field_textarea( $field ){
 		global $post;
 		$value = get_post_meta( $post->ID, $field['name'], true ) != '' ? esc_attr (get_post_meta( $post->ID, $field['name'], true ) ) : $field['default'];
-		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'regular-text';
+		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'mdc-meta-field';
 		$cols  = isset( $field['columns'] ) ? $field['columns'] : 24;
 		$rows  = isset( $field['rows'] ) ? $field['rows'] : 5;
 		$readonly  = isset( $field['readonly'] ) && ( $field['readonly'] == true ) ? " readonly" : "";
@@ -185,7 +185,7 @@ class MDC_Meta_Box {
 	public function field_radio( $field ){
 		global $post;
 		$value = get_post_meta( $post->ID, $field['name'], true ) != '' ? esc_attr (get_post_meta( $post->ID, $field['name'], true ) ) : $field['default'];
-		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'regular-text';
+		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'mdc-meta-field';
 		$disabled  = isset( $field['disabled'] ) && ( $field['disabled'] == true ) ? " disabled" : "";
 
         $html	= sprintf( '<fieldset class="mdc-row" id="mdc_cmb_fieldset_%1$s">', $field['name'] );
@@ -208,7 +208,7 @@ class MDC_Meta_Box {
 		global $post;
 		$field['default'] = ( isset( $field['default'] ) ) ? $field['default'] : '';
 		$value = get_post_meta( $post->ID, $field['name'], true ) != '' ? esc_attr (get_post_meta( $post->ID, $field['name'], true ) ) : $field['default'];
-		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'regular-text';
+		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'mdc-meta-field';
 		$disabled  = isset( $field['disabled'] ) && ( $field['disabled'] == true ) ? " disabled" : "";
 
 		$html	= sprintf( '<fieldset class="mdc-row" id="mdc_cmb_fieldset_%1$s">', $field['name'] );
@@ -225,7 +225,7 @@ class MDC_Meta_Box {
 		global $post;
 		$field['default'] = ( isset( $field['default'] ) ) ? $field['default'] : '';
 		$value = get_post_meta( $post->ID, $field['name'], true ) != '' ? esc_attr ( get_post_meta( $post->ID, $field['name'], true ) ) : $field['default'];
-		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'regular-text';
+		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'mdc-meta-field';
 		$disabled  = isset( $field['disabled'] ) && ( $field['disabled'] == true ) ? " disabled" : "";
 		$multiple  = isset( $field['multiple'] ) && ( $field['multiple'] == true ) ? " multiple" : "";
 		$name 	   = isset( $field['multiple'] ) && ( $field['multiple'] == true ) ? $field['name'] . '[]' : $field['name'];
@@ -259,7 +259,7 @@ class MDC_Meta_Box {
 	public function field_color( $field ){
 		global $post;
 		$value = get_post_meta( $post->ID, $field['name'], true ) != '' ? esc_attr (get_post_meta( $post->ID, $field['name'], true ) ) : $field['default'];
-		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'regular-text';
+		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'mdc-meta-field';
 
 		$html	= sprintf( '<fieldset class="mdc-row" id="mdc_cmb_fieldset_%1$s">', $field['name'] );
 		$html	.= sprintf( '<label class="mdc-label" for="mdc_cmb_%1$s">%2$s</label>', $field['name'], $field['label']);
@@ -275,7 +275,7 @@ class MDC_Meta_Box {
 	public function field_file( $field ){
 		global $post;
 		$value = get_post_meta( $post->ID, $field['name'], true ) != '' ? esc_attr (get_post_meta( $post->ID, $field['name'], true ) ) : $field['default'];
-		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'regular-text';
+		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'mdc-meta-field';
 		$disabled  = isset( $field['disabled'] ) && ( $field['disabled'] == true ) ? " disabled" : "";
 
         $id    = $field['name']  . '[' . $field['name'] . ']';
@@ -294,7 +294,7 @@ class MDC_Meta_Box {
 	public function field_wysiwyg( $field ){
 		global $post;
 		$value = get_post_meta( $post->ID, $field['name'], true ) != '' ? get_post_meta( $post->ID, $field['name'], true ) : $field['default'];
-		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'regular-text';
+		$class  = isset( $field['class'] ) && ! is_null( $field['class'] ) ? $field['class'] : 'mdc-meta-field';
 		$width  = isset( $field['width'] ) && ! is_null( $field['width'] ) ? $field['width'] : '500px';
 		$teeny  = isset( $field['teeny'] ) && ( $field['teeny'] == true ) ? true : false;
 		$text_mode  = isset( $field['text_mode'] ) && ( $field['text_mode'] == true ) ? true : false;
