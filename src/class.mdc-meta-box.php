@@ -382,9 +382,9 @@ class MDC_Meta_Box {
             .mdc-row .mdc-browse { width: 96px;}
             .mdc-row .mdc-file { width: calc( 100% - 110px ); margin-right: 4px; line-height: 20px;}
             #postbox-container-1 .mdc-meta-field, #postbox-container-1 .mdc-meta-field-text {width: 100%;}
-            #postbox-container-2 .mdc-meta-field, #postbox-container-2 .mdc-meta-field-text {width: 75%;}
-            #postbox-container-1 .mdc-meta-field-text.mdc-file { width: calc(100% - 101px) !important;}
-            #postbox-container-2 .mdc-meta-field-text.mdc-file { width: calc(100% - 306px) !important;}
+            #postbox-container-2 .mdc-meta-field, #postbox-container-2 .mdc-meta-field-text {width: 74%;}
+            #postbox-container-1 .mdc-meta-field-text.mdc-file { width: calc(100% - 101px) }
+            #postbox-container-2 .mdc-meta-field-text.mdc-file { width: calc(100% - 306px) }
             #wpbody-content .metabox-holder { padding-top: 5px; }
         </style>
         <?php
