@@ -381,7 +381,8 @@ class MDC_Meta_Box {
             .mdc-row .mdc-label {display: inline-block; vertical-align: top; width: 200px; font-size: 15px; line-height: 24px;}
             .mdc-row .mdc-browse { width: 96px;}
             .mdc-row .mdc-file { width: calc( 100% - 110px ); margin-right: 4px; line-height: 20px;}
-            .mdc-meta-field, .mdc-meta-field-text {width: 100%;}
+            #postbox-container-1 .mdc-meta-field, #postbox-container-1 .mdc-meta-field-text {width: 100%;}
+            #postbox-container-2 .mdc-meta-field, #postbox-container-2 .mdc-meta-field-text {width: 75%;}
             .regular-text-text.mdc-url {width: calc(100% - 67px);}
             #wpbody-content .metabox-holder { padding-top: 5px; }
         </style>
