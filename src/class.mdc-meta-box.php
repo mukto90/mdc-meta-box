@@ -302,7 +302,8 @@ class MDC_Meta_Box {
 		$rows  = isset( $field['rows'] ) ? $field['rows'] : 10;
 
 		$html	= sprintf( '<fieldset class="mdc-row" id="mdc_cmb_fieldset_%1$s">', $field['name'] );
-        $html	.= '<div style="max-width: ' . $width . ';">';
+        $html	.= sprintf( '<label class="mdc-label" for="mdc_cmb_%1$s">%2$s</label>', $field['name'], $field['label']);
+        $html	.= '<div style="width: ' . $width . '; float:right">';
 
         $editor_settings = array(
             'teeny'         => $teeny,
