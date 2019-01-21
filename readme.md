@@ -72,7 +72,7 @@ function my_meta_fields() {
         )
     );
 
-    $my_meta_field = new MDC_Meta_Box( $args );
+    mdc_meta_box( $args );
 }
 ```
 
@@ -230,7 +230,7 @@ function my_meta_fields() {
         )
     );
 
-    $my_meta_field = new MDC_Meta_Box( $args );
+    mdc_meta_box( $args );
 }
 ```
 
