@@ -395,6 +395,6 @@ endif;
 
 if ( ! function_exists( 'mdc_meta_box' ) ) {
 	function mdc_meta_box( $args ){
-		return new MDC_Meta_Box( $args );
+		return new \MDC_Meta_Box( $args );
 	}
 }
