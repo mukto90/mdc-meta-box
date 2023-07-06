@@ -1,6 +1,6 @@
 # MDC Meta Box
 
-A PHP class to create custom meta boxes for WordPress' posts, pages or custom post types.
+A PHP class to create custom meta boxes for WordPress' posts, pages, or custom post types.
 
 # Usage
 
@@ -18,7 +18,7 @@ A PHP class to create custom meta boxes for WordPress' posts, pages or custom po
     }
 }
 ```
-- Run `composer install` command.
+- Run the `composer install` command.
 - Include your autoloader file (if not already) with `/vendor/autoload.php;`
 - Instantiate the class and pass your arguments like this-
 ```php
@@ -242,7 +242,7 @@ function my_meta_fields() {
  - WordPress 3.0+
 
 ## Author
-[Nazmul Ahsan](https://nazmulahsan.me)
+[Nazmul Ahsan](https://codexpert.io)
 
 ## Discussion
-[Link](https://nazmulahsan.me/?p=530)
+[Link](https://codexpert.io)
